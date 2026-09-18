@@ -1,4 +1,17 @@
 {
+  "cookie-pull-kitchen": {
+    "width": 1438,
+    "height": 1907,
+    "src": "/images/cookie-pull-kitchen-1438.webp",
+    "srcset": "/images/cookie-pull-kitchen-480.webp 480w, /images/cookie-pull-kitchen-800.webp 800w, /images/cookie-pull-kitchen-1200.webp 1200w, /images/cookie-pull-kitchen-1438.webp 1438w",
+    "widths": [
+      480,
+      800,
+      1200,
+      1438
+    ],
+    "source": "cookie-pull-kitchen.jpg"
+  },
   "crookie": {
     "width": 1500,
     "height": 1500,
@@ -47,6 +60,32 @@
       790
     ],
     "source": "logo.jpg"
+  },
+  "oven-baked-minis": {
+    "width": 1440,
+    "height": 1634,
+    "src": "/images/oven-baked-minis-1440.webp",
+    "srcset": "/images/oven-baked-minis-480.webp 480w, /images/oven-baked-minis-800.webp 800w, /images/oven-baked-minis-1200.webp 1200w, /images/oven-baked-minis-1440.webp 1440w",
+    "widths": [
+      480,
+      800,
+      1200,
+      1440
+    ],
+    "source": "oven-baked-minis.jpg"
+  },
+  "oven-raw-minis": {
+    "width": 1440,
+    "height": 1634,
+    "src": "/images/oven-raw-minis-1440.webp",
+    "srcset": "/images/oven-raw-minis-480.webp 480w, /images/oven-raw-minis-800.webp 800w, /images/oven-raw-minis-1200.webp 1200w, /images/oven-raw-minis-1440.webp 1440w",
+    "widths": [
+      480,
+      800,
+      1200,
+      1440
+    ],
+    "source": "oven-raw-minis.jpg"
   },
   "smores-checkered": {
     "width": 720,
