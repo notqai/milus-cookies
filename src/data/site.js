@@ -9,7 +9,7 @@ export const brand = {
   wordmark: 'MiLUs',
   endorsement: 'by KopHjSarkawi', // copy exactly; do not expand
   tagline: 'Soft cookies. Gooey middles.',
-  location: 'TODO: LOCATION', // e.g. town + state
+  location: 'Miri, Sarawak',
 }
 
 export const contact = {
@@ -22,9 +22,9 @@ export const contact = {
     'Pickup / delivery:\n- \n\n' +
     'Name:\n- ',
   instagramHandle: 'miluscookies.myy',
-  address: 'TODO: street address, town, state', // paste the address text shown on the Google Maps listing
+  address: '2367, Jalan Datuk Edward Jeli, 98000 Miri, Sarawak',
   mapsUrl: 'https://share.google/UySrNnzArh1YedGq5', // Google Maps share link (opens the listing / directions)
-  mapEmbedUrl: '', // TODO: Google Maps embed URL (Share → Embed a map → copy the src)
+  mapEmbedUrl: 'https://www.google.com/maps?q=2367%2C+Jalan+Datuk+Edward+Jeli%2C+98000+Miri%2C+Sarawak&output=embed', // keyless Google Maps embed; swap for the Share → Embed src if preferred
   hours: [
     // TODO: real opening hours
     { days: 'Mon – Fri', time: 'TODO' },
