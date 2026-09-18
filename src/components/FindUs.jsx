@@ -5,6 +5,15 @@ import Button, { WhatsAppIcon, InstagramIcon } from './Button.jsx'
 import { Highlighted } from './SectionHead.jsx'
 import { copy, links, contact } from '../data/site.js'
 
+function MapPinIcon({ className = 'size-5' }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 22s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z" />
+      <circle cx="12" cy="10" r="2.5" />
+    </svg>
+  )
+}
+
 // A kraft takeaway bag holding the where/when, with a sticker on top.
 export default function FindUs() {
   const c = copy.findUs
@@ -23,7 +32,14 @@ export default function FindUs() {
             <dl className="mt-6 grid gap-5 border-t-2 border-dashed border-maroon/30 pt-6">
               <div>
                 <dt className="font-display text-sm font-bold uppercase tracking-[0.18em] text-orange-deep">Where</dt>
-                <dd className="mt-1 text-cocoa"><Todo>{contact.address}</Todo></dd>
+                <dd className="mt-1 text-cocoa">
+                  <Todo>{contact.address}</Todo>
+                  {contact.mapsUrl && (
+                    <a href={contact.mapsUrl} target="_blank" rel="noopener" className="mt-2 inline-flex items-center gap-1.5 rounded font-display font-semibold text-maroon underline decoration-sun decoration-4 underline-offset-4">
+                      <MapPinIcon /> {c.ctaMaps}
+                    </a>
+                  )}
+                </dd>
               </div>
               <div>
                 <dt className="font-display text-sm font-bold uppercase tracking-[0.18em] text-orange-deep">When</dt>
@@ -60,9 +76,18 @@ export default function FindUs() {
           {contact.mapEmbedUrl ? (
             <iframe title="Map to Milus Cookies" src={contact.mapEmbedUrl} loading="lazy" className="aspect-[5/3] w-full rounded-[1.75rem] border-0 shadow-lift" />
           ) : (
-            <div className="grid aspect-[5/2] place-items-center rounded-[1.75rem] border-2 border-dashed border-maroon/40 text-center">
-              <span className="font-mono text-xs text-maroon">TODO: Google Maps embed (contact.mapEmbedUrl in src/data/site.js)</span>
-            </div>
+            <a
+              href={contact.mapsUrl}
+              target="_blank"
+              rel="noopener"
+              className="grid aspect-[5/2] place-items-center rounded-[1.75rem] border-2 border-dashed border-maroon/40 text-center motion-safe:transition hover:bg-maroon/5"
+            >
+              <span className="inline-flex flex-col items-center gap-1 font-display font-semibold text-maroon">
+                <MapPinIcon className="size-7 text-orange" />
+                {c.ctaMaps}
+                <span className="font-mono text-[11px] font-normal text-maroon/70">TODO: paste the embed URL into contact.mapEmbedUrl for an inline map</span>
+              </span>
+            </a>
           )}
         </div>
       </div>
