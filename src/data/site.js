@@ -80,9 +80,9 @@ export const copy = {
     highlight: 'Pulled apart.',
     sub: 'Straight from the tray, while the chocolate is still melty.',
     steps: [
-      { image: 'oven-raw-minis', label: 'Scooped', caption: 'Tray in.', alt: 'A tray of raw mini cookie dough scoops going into the oven' },
-      { image: 'oven-baked-minis', label: 'Baked', caption: 'Tray out.', alt: 'The same tray of mini cookies, baked and golden, lit by the oven' },
-      { image: 'cookie-pull-kitchen', label: 'Pulled apart', caption: 'Still gooey.', alt: 'A soft cookie pulled apart in the kitchen, filling stretching between the halves' },
+      { image: 'oven-raw-minis', focus: '50% 72%', label: 'Scooped', caption: 'Tray in.', alt: 'A tray of raw mini cookie dough scoops with flaky salt, going into the oven' },
+      { image: 'oven-baked-minis', focus: '50% 70%', label: 'Baked', caption: 'Tray out.', alt: 'The same tray of mini cookies, baked and golden, lit by the oven' },
+      { image: 'cookie-pull-kitchen', focus: '50% 45%', label: 'Pulled apart', caption: 'Still gooey.', alt: 'A soft cookie pulled apart in the kitchen, molten chocolate filling between the halves' },
     ],
   },
   crookie: {

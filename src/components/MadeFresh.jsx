@@ -26,6 +26,7 @@ export default function MadeFresh() {
                   aspect="1 / 1"
                   sizes="(min-width: 768px) 220px, 30vw"
                   className="aspect-square w-full rounded-full border-4 border-white object-cover shadow-lift"
+                  style={{ objectPosition: s.focus }}
                 />
               </div>
               <p className="mt-2 font-display text-lg font-bold text-maroon md:text-2xl">{s.label}</p>
