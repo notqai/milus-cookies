@@ -21,9 +21,10 @@ export const contact = {
     'Flavours + quantity:\n- \n\n' +
     'Pickup / delivery:\n- \n\n' +
     'Name:\n- ',
-  instagramHandle: 'TODO-handle', // TODO: Instagram handle without @
-  address: 'TODO: street address, town, state',
-  mapEmbedUrl: '', // TODO: Google Maps embed URL
+  instagramHandle: 'miluscookies.myy',
+  address: 'TODO: street address, town, state', // paste the address text shown on the Google Maps listing
+  mapsUrl: 'https://share.google/UySrNnzArh1YedGq5', // Google Maps share link (opens the listing / directions)
+  mapEmbedUrl: '', // TODO: Google Maps embed URL (Share → Embed a map → copy the src)
   hours: [
     // TODO: real opening hours
     { days: 'Mon – Fri', time: 'TODO' },
@@ -109,6 +110,7 @@ export const copy = {
     imageAlt: 'The Milus acrylic display case with baskets of cookies, crookies and chalkboard price signs',
     ctaWhatsapp: 'Order on WhatsApp',
     ctaInstagram: 'Follow on Instagram',
+    ctaMaps: 'Open in Google Maps',
   },
   footer: {
     signoff: 'Confirm sedap.',
