@@ -26,9 +26,8 @@ export const contact = {
   mapsUrl: 'https://share.google/UySrNnzArh1YedGq5', // Google Maps share link (opens the listing / directions)
   mapEmbedUrl: 'https://www.google.com/maps?q=2367%2C+Jalan+Datuk+Edward+Jeli%2C+98000+Miri%2C+Sarawak&output=embed', // keyless Google Maps embed; swap for the Share → Embed src if preferred
   hours: [
-    // TODO: real opening hours
-    { days: 'Mon – Fri', time: 'TODO' },
-    { days: 'Sat – Sun', time: 'TODO' },
+    { days: 'Mon – Sat', time: '9 am – 3:30 pm' },
+    { days: 'Sun', time: 'Closed' },
   ],
 }
 
