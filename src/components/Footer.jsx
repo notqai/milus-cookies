@@ -31,7 +31,6 @@ export default function Footer() {
             <a href={links.instagram()} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded hover:text-sun">
               <InstagramIcon /> @{contact.instagramHandle}
             </a>
-            <p className="text-sm text-warm/70"><Todo>{copy.footer.halalNote}</Todo></p>
           </div>
         </div>
       </div>

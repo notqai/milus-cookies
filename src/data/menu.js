@@ -96,5 +96,4 @@ export const notes = {
   // The display sign reads "Soft Cookie RM7 - RM8"; the menu graphic says RM8 flat. Using RM8.
   priceDiscrepancy: 'TODO: display sign says RM7–RM8, menu graphic says RM8. Confirm.',
   allergen: 'TODO: allergen note (Hazelnut Bliss contains hazelnuts; confirm the rest).',
-  halal: 'TODO: halal status.',
 }

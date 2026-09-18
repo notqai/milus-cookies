@@ -113,8 +113,6 @@ export const copy = {
   footer: {
     signoff: 'Confirm sedap.',
     blurb: 'Soft cookies with gooey middles, baked by Milus.',
-    // TODO: halal status. Do not display a halal claim until confirmed.
-    halalNote: 'TODO: halal status',
     credit: `© ${new Date().getFullYear()} Milus Cookies · ${brand.endorsement}`,
   },
   dock: {
