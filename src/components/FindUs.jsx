@@ -1,63 +1,66 @@
 import Pic from './Pic.jsx'
 import Todo from './Todo.jsx'
-import SectionHead from './SectionHead.jsx'
 import Wave from './Wave.jsx'
 import Button, { WhatsAppIcon, InstagramIcon } from './Button.jsx'
+import { Highlighted } from './SectionHead.jsx'
 import { copy, links, contact } from '../data/site.js'
 
+// A kraft takeaway bag holding the where/when, with a sticker on top.
 export default function FindUs() {
   const c = copy.findUs
   return (
-    <section id="find-us" className="scroll-mt-20 bg-cream pt-4">
-      <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 py-10 md:grid-cols-2 md:gap-12 md:py-20">
-        <div className="flex flex-col items-start gap-5">
-          <SectionHead eyebrow={c.eyebrow} heading={c.heading} sub={c.sub} />
-          <dl className="grid w-full gap-4 rounded-[1.75rem] bg-white p-5 shadow-lift">
-            <div>
-              <dt className="font-display text-sm font-semibold uppercase tracking-[0.18em] text-orange-deep">Where</dt>
-              <dd className="mt-1 text-cocoa"><Todo>{contact.address}</Todo></dd>
+    <section id="find-us" className="scroll-mt-16 bg-cream pt-10">
+      <div className="mx-auto grid max-w-6xl items-start gap-10 px-4 pb-12 md:grid-cols-2 md:gap-14 md:pb-20">
+        <div className="relative pt-5 drop-shadow-[0_18px_28px_rgba(42,15,15,0.25)]">
+          <span className="sticker absolute left-1/2 top-0 z-10 -translate-x-1/2 -rotate-3 rounded-full bg-sun px-5 py-2 font-display text-lg font-bold text-cocoa">
+            {c.sticker}
+          </span>
+          <div className="zigzag-top bg-kraft-paper rounded-b-[2rem] px-6 pb-8 pt-12 md:px-10 md:pb-10">
+            <h2 className="font-serif-display text-4xl leading-[1.02] text-maroon md:text-5xl">
+              <Highlighted text={c.heading} word={c.highlight} />
+            </h2>
+            <p className="mt-3 text-cocoa/80">{c.sub}</p>
+            <dl className="mt-6 grid gap-5 border-t-2 border-dashed border-maroon/30 pt-6">
+              <div>
+                <dt className="font-display text-sm font-bold uppercase tracking-[0.18em] text-orange-deep">Where</dt>
+                <dd className="mt-1 text-cocoa"><Todo>{contact.address}</Todo></dd>
+              </div>
+              <div>
+                <dt className="font-display text-sm font-bold uppercase tracking-[0.18em] text-orange-deep">When</dt>
+                <dd className="mt-1">
+                  <ul className="flex flex-col gap-1 text-cocoa">
+                    {contact.hours.map((h) => (
+                      <li key={h.days} className="flex justify-between gap-4">
+                        <span>{h.days}</span>
+                        <span><Todo>{h.time}</Todo></span>
+                      </li>
+                    ))}
+                  </ul>
+                </dd>
+              </div>
+            </dl>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <Button href={links.whatsapp()} target="_blank" rel="noopener" className="w-full sm:w-auto">
+                <WhatsAppIcon /> {c.ctaWhatsapp}
+              </Button>
+              <Button href={links.instagram()} target="_blank" rel="noopener" variant="outline" className="w-full shadow-none sm:w-auto">
+                <InstagramIcon /> {c.ctaInstagram}
+              </Button>
             </div>
-            <div>
-              <dt className="font-display text-sm font-semibold uppercase tracking-[0.18em] text-orange-deep">When</dt>
-              <dd className="mt-1">
-                <ul className="flex flex-col gap-1 text-cocoa">
-                  {contact.hours.map((h) => (
-                    <li key={h.days} className="flex justify-between gap-4">
-                      <span>{h.days}</span>
-                      <span><Todo>{h.time}</Todo></span>
-                    </li>
-                  ))}
-                </ul>
-              </dd>
-            </div>
-          </dl>
-          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-            <Button href={links.whatsapp()} target="_blank" rel="noopener" className="w-full sm:w-auto">
-              <WhatsAppIcon /> {c.ctaWhatsapp}
-            </Button>
-            <Button href={links.instagram()} target="_blank" rel="noopener" variant="outline" className="w-full shadow-none sm:w-auto">
-              <InstagramIcon /> {c.ctaInstagram}
-            </Button>
           </div>
         </div>
-        <div className="flex flex-col gap-4">
-          <div className="overflow-hidden rounded-[2.25rem] shadow-lift">
-            <Pic
-              name={c.image}
-              alt={c.imageAlt}
-              sizes="(min-width: 768px) 45vw, 92vw"
-              className="aspect-[5/4] w-full object-cover"
-            />
-          </div>
+
+        <div className="flex flex-col gap-4 md:pt-6">
+          <Pic
+            name={c.image}
+            alt={c.imageAlt}
+            sizes="(min-width: 768px) 45vw, 92vw"
+            className="clip-blob-a aspect-[5/4] w-full object-cover"
+          />
           {contact.mapEmbedUrl ? (
-            <iframe
-              title="Map to Milus Cookies"
-              src={contact.mapEmbedUrl}
-              loading="lazy"
-              className="aspect-[5/3] w-full rounded-[1.75rem] border-0 shadow-lift"
-            />
+            <iframe title="Map to Milus Cookies" src={contact.mapEmbedUrl} loading="lazy" className="aspect-[5/3] w-full rounded-[1.75rem] border-0 shadow-lift" />
           ) : (
-            <div className="grid aspect-[5/2] place-items-center rounded-[1.75rem] border-2 border-dashed border-maroon/40 bg-kraft-paper text-center">
+            <div className="grid aspect-[5/2] place-items-center rounded-[1.75rem] border-2 border-dashed border-maroon/40 text-center">
               <span className="font-mono text-xs text-maroon">TODO: Google Maps embed (contact.mapEmbedUrl in src/data/site.js)</span>
             </div>
           )}
