@@ -1,5 +1,10 @@
 import manifest from '../data/images.generated.json'
 
+// Manifest paths are root-relative; prefix them with Vite's base so builds
+// served from a sub-path (previews) still resolve.
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, '')
+export const withBase = (p) => (p ? BASE + p : p)
+
 // Responsive image from the generated manifest (run `npm run images`).
 // If the key is missing (asset not received yet) it renders a clearly
 // labelled placeholder so the layout can still be reviewed.
@@ -8,8 +13,8 @@ export default function Pic({ name, alt, sizes = '100vw', className = '', priori
   if (!img) return <Placeholder name={name} className={className} aspect={aspect} style={style} />
   return (
     <img
-      src={img.src}
-      srcSet={img.srcset}
+      src={withBase(img.src)}
+      srcSet={img.srcset.replaceAll('/images/', `${BASE}/images/`)}
       sizes={sizes}
       width={img.width}
       height={img.height}

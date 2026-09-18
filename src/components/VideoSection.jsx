@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import SectionHead from './SectionHead.jsx'
-import { Placeholder } from './Pic.jsx'
+import { Placeholder, withBase } from './Pic.jsx'
 import video from '../data/video.generated.json'
 import { copy } from '../data/site.js'
 
@@ -63,14 +63,14 @@ function CasePan() {
         loop
         playsInline
         preload="metadata"
-        poster={video.poster}
+        poster={withBase(video.poster)}
         width={video.width}
         height={video.height}
         className="aspect-video w-full object-cover"
         aria-label="Slow pan across the Milus display case"
       >
-        <source src={video.webm} type="video/webm" />
-        <source src={video.mp4} type="video/mp4" />
+        <source src={withBase(video.webm)} type="video/webm" />
+        <source src={withBase(video.mp4)} type="video/mp4" />
       </video>
       <button
         type="button"
