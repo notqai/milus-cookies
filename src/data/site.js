@@ -98,7 +98,6 @@ export const copy = {
     eyebrow: 'Peek inside',
     heading: 'Thirteen seconds of temptation.',
     sub: 'A slow pan across the display case.',
-    // TODO(assets): display-case-pan.mp4 not received; run `npm run video` after dropping it in assets-source/.
   },
   findUs: {
     sticker: 'Come get some',
