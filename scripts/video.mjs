@@ -2,26 +2,26 @@
 // to a small MP4 + WebM (muted, 720p max) plus a poster frame in
 // public/video/, and writes src/data/video.generated.json.
 //
-//   npm run video            (needs ffmpeg on PATH)
+//   npm run video   (uses ffmpeg from PATH, else the @ffmpeg-installer binary)
 import fs from 'node:fs/promises'
+import { createRequire } from 'node:module'
 import { spawnSync } from 'node:child_process'
 import sharp from 'sharp'
+
+const require = createRequire(import.meta.url)
+const FFMPEG = spawnSync('ffmpeg', ['-version']).status === 0 ? 'ffmpeg' : require('@ffmpeg-installer/ffmpeg').path
 
 const SRC = 'assets-source/display-case-pan.mp4'
 const OUT = 'public/video'
 const MANIFEST = 'src/data/video.generated.json'
 
 const exists = async (p) => !!(await fs.stat(p).catch(() => null))
-const run = (args) => spawnSync('ffmpeg', ['-y', '-hide_banner', '-loglevel', 'error', ...args], { stdio: 'inherit' })
+const run = (args) => spawnSync(FFMPEG, ['-y', '-hide_banner', '-loglevel', 'error', ...args], { stdio: 'inherit' })
 
 async function main() {
   const manifest = { available: false, source: SRC }
   if (!(await exists(SRC))) {
     console.log(`– ${SRC} not found. TODO(assets): drop the video in assets-source/ and re-run.`)
-    return finish(manifest)
-  }
-  if (spawnSync('ffmpeg', ['-version']).status !== 0) {
-    console.log('– ffmpeg not on PATH; install it and re-run `npm run video`.')
     return finish(manifest)
   }
   await fs.mkdir(OUT, { recursive: true })

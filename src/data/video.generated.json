@@ -1,4 +1,9 @@
 {
-  "available": false,
-  "source": "assets-source/display-case-pan.mp4"
+  "available": true,
+  "source": "assets-source/display-case-pan.mp4",
+  "mp4": "/video/display-case-pan.mp4",
+  "webm": "/video/display-case-pan.webm",
+  "poster": "/video/poster.webp",
+  "width": 720,
+  "height": 796
 }

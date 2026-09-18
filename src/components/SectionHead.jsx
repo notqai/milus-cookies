@@ -1,13 +1,13 @@
 // Sticker eyebrow + serif heading with a yellow squiggle under one word.
 // tone: 'light' (cream/kraft) | 'dark' (maroon)
-export default function SectionHead({ eyebrow, heading, highlight, sub, tone = 'light', align = 'left', className = '' }) {
+export default function SectionHead({ id, eyebrow, heading, highlight, sub, tone = 'light', align = 'left', className = '' }) {
   const headingColor = tone === 'dark' ? 'text-warm' : 'text-maroon'
   const subColor = tone === 'dark' ? 'text-warm/80' : 'text-cocoa/75'
   const alignCls = align === 'center' ? 'items-center text-center' : 'items-start'
   return (
     <div className={`flex flex-col gap-3 ${alignCls} ${className}`}>
       {eyebrow && <Sticker tone={tone}>{eyebrow}</Sticker>}
-      <h2 className={`font-serif-display text-4xl leading-[1.02] md:text-6xl ${headingColor}`}>
+      <h2 id={id} className={`font-serif-display text-4xl leading-[1.02] md:text-6xl ${headingColor}`}>
         <Highlighted text={heading} word={highlight} />
       </h2>
       {sub && <p className={`max-w-prose text-base md:text-lg ${subColor}`}>{sub}</p>}
