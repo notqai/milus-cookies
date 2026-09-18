@@ -12,7 +12,7 @@ export default function VideoSection() {
     <section aria-labelledby="video-heading" className="bg-cream py-14 md:py-24">
       <div className="mx-auto max-w-4xl px-4">
         <SectionHead eyebrow={c.eyebrow} heading={c.heading} sub={c.sub} align="center" />
-        <div className="mt-8 overflow-hidden rounded-[2rem] shadow-lift md:mt-12">
+        <div className="mt-8 overflow-hidden rounded-[2rem] border-8 border-white/80 shadow-lift md:mt-12">
           {video.available ? <CasePan /> : (
             <Placeholder
               name="display-case-pan"
@@ -28,6 +28,7 @@ export default function VideoSection() {
             />
           )}
         </div>
+        <div aria-hidden="true" className="bg-wicker-weave mx-6 h-3 rounded-b-xl" />
       </div>
     </section>
   )

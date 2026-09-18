@@ -1,20 +1,42 @@
-import Dot from './Dot.jsx'
-
-// Eyebrow + serif heading + sub. tone: 'light' (cream bg) | 'dark' (maroon) | 'orange'
-export default function SectionHead({ eyebrow, heading, sub, tone = 'light', align = 'left', className = '' }) {
-  const eyebrowColor = { light: 'text-orange-deep', dark: 'text-sun', orange: 'text-cocoa' }[tone]
-  const headingColor = { light: 'text-maroon', dark: 'text-warm', orange: 'text-warm' }[tone]
-  const subColor = { light: 'text-cocoa/75', dark: 'text-warm/80', orange: 'text-cocoa' }[tone]
-  const alignCls = align === 'center' ? 'text-center items-center' : 'items-start'
+// Sticker eyebrow + serif heading with a yellow squiggle under one word.
+// tone: 'light' (cream/kraft) | 'dark' (maroon)
+export default function SectionHead({ eyebrow, heading, highlight, sub, tone = 'light', align = 'left', className = '' }) {
+  const headingColor = tone === 'dark' ? 'text-warm' : 'text-maroon'
+  const subColor = tone === 'dark' ? 'text-warm/80' : 'text-cocoa/75'
+  const alignCls = align === 'center' ? 'items-center text-center' : 'items-start'
   return (
-    <div className={`flex flex-col gap-2 ${alignCls} ${className}`}>
-      {eyebrow && (
-        <p className={`inline-flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-[0.18em] ${eyebrowColor}`}>
-          <Dot className="size-2.5" /> {eyebrow}
-        </p>
-      )}
-      <h2 className={`font-serif-display text-3xl leading-[1.05] md:text-5xl ${headingColor}`}>{heading}</h2>
+    <div className={`flex flex-col gap-3 ${alignCls} ${className}`}>
+      {eyebrow && <Sticker tone={tone}>{eyebrow}</Sticker>}
+      <h2 className={`font-serif-display text-4xl leading-[1.02] md:text-6xl ${headingColor}`}>
+        <Highlighted text={heading} word={highlight} />
+      </h2>
       {sub && <p className={`max-w-prose text-base md:text-lg ${subColor}`}>{sub}</p>}
     </div>
+  )
+}
+
+export function Sticker({ children, tone = 'light', rotate = '-rotate-3', className = '' }) {
+  const look = tone === 'dark' ? 'border-sun text-sun' : 'border-maroon text-maroon bg-cream'
+  return (
+    <span className={`inline-block rounded-full border-2 px-3 py-1 font-display text-sm font-bold uppercase tracking-wider ${look} ${rotate} ${className}`}>
+      {children}
+    </span>
+  )
+}
+
+export function Highlighted({ text, word }) {
+  if (!word || !text.includes(word)) return text
+  const [before, after] = text.split(word)
+  return (
+    <>
+      {before}
+      <span className="relative inline-block whitespace-nowrap">
+        {word}
+        <svg aria-hidden="true" viewBox="0 0 100 10" preserveAspectRatio="none" className="absolute -bottom-1 left-0 h-[0.18em] w-full">
+          <path d="M1 6 Q 13 1 25 6 T 50 6 T 75 6 T 99 6" fill="none" stroke="var(--color-sun)" strokeWidth="4" strokeLinecap="round" />
+        </svg>
+      </span>
+      {after}
+    </>
   )
 }

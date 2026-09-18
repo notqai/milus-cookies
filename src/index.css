@@ -1,5 +1,6 @@
 @import '@fontsource-variable/fredoka';
 @import '@fontsource-variable/fraunces/wght.css';
+@import '@fontsource-variable/fraunces/wght-italic.css';
 @import '@fontsource-variable/dm-sans';
 @import 'tailwindcss';
 
@@ -28,6 +29,8 @@
   --animate-marquee: marquee 28s linear infinite;
   --animate-wiggle: wiggle 3s ease-in-out infinite;
   --animate-pop: pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  --animate-spin-slow: spin-slow 26s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
 
   @keyframes marquee {
     from { transform: translateX(0); }
@@ -36,6 +39,13 @@
   @keyframes wiggle {
     0%, 100% { transform: rotate(-2deg); }
     50% { transform: rotate(2deg); }
+  }
+  @keyframes spin-slow {
+    to { transform: rotate(360deg); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
   }
   @keyframes pop {
     from { transform: scale(0); opacity: 0; }
@@ -97,4 +107,20 @@
 /* Safe-area padding for the sticky bottom bar. */
 @utility pb-safe {
   padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Organic photo masks. Shapes are defined once in <Shapes /> (Layout). */
+@utility clip-bite { clip-path: url(#bite); }
+@utility clip-blob-a { clip-path: url(#blob-a); }
+@utility clip-blob-b { clip-path: url(#blob-b); }
+@utility clip-blob-c { clip-path: url(#blob-c); }
+
+/* Serrated top edge for the kraft takeaway bag. */
+@utility zigzag-top {
+  clip-path: polygon(0.00% 3.5%, 3.57% 0%, 7.14% 3.5%, 10.71% 0%, 14.29% 3.5%, 17.86% 0%, 21.43% 3.5%, 25.00% 0%, 28.57% 3.5%, 32.14% 0%, 35.71% 3.5%, 39.29% 0%, 42.86% 3.5%, 46.43% 0%, 50.00% 3.5%, 53.57% 0%, 57.14% 3.5%, 60.71% 0%, 64.29% 3.5%, 67.86% 0%, 71.43% 3.5%, 75.00% 0%, 78.57% 3.5%, 82.14% 0%, 85.71% 3.5%, 89.29% 0%, 92.86% 3.5%, 96.43% 0%, 100.00% 3.5%, 100% 100%, 0 100%);
+}
+
+/* Sticker: slightly rotated chip with a paper-cut shadow. */
+@utility sticker {
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.6) inset, 0 6px 14px -6px rgb(42 15 15 / 0.45);
 }

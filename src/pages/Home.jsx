@@ -1,5 +1,4 @@
 import Hero from '../components/Hero.jsx'
-import PromoRibbon from '../components/PromoRibbon.jsx'
 import Flavours from '../components/Flavours.jsx'
 import Bundle from '../components/Bundle.jsx'
 import MadeFresh from '../components/MadeFresh.jsx'
@@ -11,7 +10,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <PromoRibbon />
       <Flavours />
       <Bundle />
       <MadeFresh />

@@ -45,30 +45,28 @@ export const nav = [
 
 export const copy = {
   hero: {
-    eyebrow: `Soft cookies · ${brand.location}`,
-    headline: 'Gooey in the middle. Gone in three bites.',
-    sub: 'Chunky chocolate, toasted marshmallow, a pinch of sea salt. Confirm sedap.',
+    headlineA: 'Soft cookies.',
+    headlineB: 'Seriously gooey.',
+    sub: 'Chunky chocolate, toasted marshmallow, a pinch of sea salt. Gone in three bites. Confirm sedap.',
     primary: 'Order on WhatsApp',
     secondary: 'See the flavours',
-    sticker: 'RM8',
-    stickerSub: 'each',
+    badge: 'BUY 4 · RM30 · MIX ANY FLAVOURS · ', // spins around the hero cookie
     // TODO(assets): hero-cookie-stack.jpg not received. smores-checkered.jpg
     // (720px) is standing in. Swap `image` back once it lands.
     image: 'smores-checkered',
     imageAlt: "Milus Campfire S'mores cookies stacked on red-and-white checkered paper",
   },
-  ribbon: ['Buy 4 for RM30', 'Mix any flavours', 'Soft cookies, gooey middles', 'Order on WhatsApp'],
   flavours: {
-    eyebrow: 'The lineup',
-    heading: 'Four flavours. Zero self-control.',
-    sub: 'RM8 each, or grab any four for RM30.',
-    featuredLabel: 'Fan favourite',
-    swipeHint: 'Swipe →',
+    eyebrow: 'The tray',
+    heading: 'Pick your flavour.',
+    highlight: 'flavour',
+    sub: 'Four soft cookies. RM8 each, any four for RM30. Zero self-control required.',
+    featuredLabel: 'Fan fav',
   },
   bundle: {
-    eyebrow: 'Best deal',
-    heading: 'Buy 4, pay RM30',
-    sub: 'Mix and match any four flavours. For the office, the family, or just you. No judgement.',
+    kicker: 'Grab any four',
+    mid: 'for',
+    sub: 'Mix and match. For the office, the family, or just you. No judgement.',
     // TODO: confirm with Milus that the bundle allows any mix of flavours.
     note: 'TODO: confirm any-mix rule',
     cta: 'Build my box',
@@ -78,6 +76,7 @@ export const copy = {
   madeFresh: {
     eyebrow: 'Made fresh',
     heading: 'Scooped. Baked. Pulled apart.',
+    highlight: 'Pulled apart.',
     sub: 'Straight from the tray, while the chocolate is still melty.',
     steps: [
       { image: 'oven-raw-minis', label: 'Scooped', caption: 'Tray in.', alt: 'A tray of raw mini cookie dough scoops going into the oven' },
@@ -87,7 +86,7 @@ export const copy = {
   },
   crookie: {
     eyebrow: 'Also in store',
-    heading: 'Meet the Crookie',
+    words: ['croissant', 'cookie', 'Crookie'], // the equation
     sub: 'A butter croissant wearing a chocolate chip cookie. Yes, both. Yes, really.',
     price: 'RM10', // from the display-case chalkboard sign
     priceNote: 'TODO: confirm Crookie price (RM10 read from the display sign)',
@@ -102,8 +101,9 @@ export const copy = {
     // TODO(assets): display-case-pan.mp4 not received; run `npm run video` after dropping it in assets-source/.
   },
   findUs: {
-    eyebrow: 'Order & find us',
-    heading: 'Come get some.',
+    sticker: 'Come get some',
+    heading: 'Order & find us.',
+    highlight: 'find us.',
     sub: 'Order ahead on WhatsApp so your box is ready when you are.',
     image: 'display-case',
     imageAlt: 'The Milus acrylic display case with baskets of cookies, crookies and chalkboard price signs',
@@ -111,12 +111,13 @@ export const copy = {
     ctaInstagram: 'Follow on Instagram',
   },
   footer: {
+    signoff: 'Confirm sedap.',
     blurb: 'Soft cookies with gooey middles, baked by Milus.',
     // TODO: halal status. Do not display a halal claim until confirmed.
     halalNote: 'TODO: halal status',
     credit: `© ${new Date().getFullYear()} Milus Cookies · ${brand.endorsement}`,
   },
-  stickyBar: {
-    label: 'Order on WhatsApp',
+  dock: {
+    label: 'Order',
   },
 }
