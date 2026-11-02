@@ -1,5 +1,4 @@
 import Wordmark from './Wordmark.jsx'
-import Todo from './Todo.jsx'
 import { InstagramIcon, WhatsAppIcon } from './Button.jsx'
 import { nav, links, copy, contact } from '../data/site.js'
 
@@ -26,7 +25,7 @@ export default function Footer() {
           </nav>
           <div className="flex flex-col gap-3">
             <a href={links.whatsapp()} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded hover:text-sun">
-              <WhatsAppIcon /> WhatsApp {!contact.whatsappNumber && <Todo>TODO: number</Todo>}
+              <WhatsAppIcon /> WhatsApp
             </a>
             <a href={links.instagram()} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded hover:text-sun">
               <InstagramIcon /> @{contact.instagramHandle}

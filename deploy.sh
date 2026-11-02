@@ -7,7 +7,7 @@ REPO="https://github.com/notqai/milus-cookies.git"
 BASE="/milus-cookies/"   # change to "/" if a custom domain is attached
 
 echo "→ Building with base $BASE…"
-npm run images >/dev/null
+npm run assets >/dev/null   # images + video (both are generated, not committed)
 npx vite build --base="$BASE"
 cp dist/index.html dist/404.html   # SPA fallback for deep links on Pages
 touch dist/.nojekyll
