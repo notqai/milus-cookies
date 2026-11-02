@@ -77,7 +77,7 @@ export const alsoInStore = [
   {
     id: 'crookie',
     name: 'Crookie',
-    price: 10, // display-case sign reads "Crookie RM10". TODO: confirm.
+    price: 10, // confirmed by Milus: Crookie RM10
     description: 'Croissant topped with a chocolate chip cookie.',
     image: 'crookie',
     imageAlt: 'Crookies: croissants topped with a chocolate chip cookie',

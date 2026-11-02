@@ -89,7 +89,6 @@ export const copy = {
     words: ['croissant', 'cookie', 'Crookie'], // the equation
     sub: 'A butter croissant wearing a chocolate chip cookie. Yes, both. Yes, really.',
     price: 'RM10', // from the display-case chalkboard sign
-    priceNote: 'TODO: confirm Crookie price (RM10 read from the display sign)',
     cta: 'Ask on WhatsApp',
     image: 'crookie',
     imageAlt: 'Crookies: croissants topped with a chocolate chip cookie, on parchment in the display case',

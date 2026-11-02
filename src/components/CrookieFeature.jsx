@@ -1,5 +1,4 @@
 import Pic from './Pic.jsx'
-import Todo from './Todo.jsx'
 import Wave from './Wave.jsx'
 import Button from './Button.jsx'
 import { Sticker } from './SectionHead.jsx'
@@ -25,9 +24,6 @@ export default function CrookieFeature() {
             </span>
           </h2>
           <p className="max-w-md text-lg text-warm/80">{c.sub}</p>
-          <p className="text-sm text-warm/60">
-            <Todo>{c.priceNote}</Todo>
-          </p>
           <Button href={links.whatsapp(`Hi Milus! Is the Crookie (${c.price}) available today?`)} target="_blank" rel="noopener" variant="light">
             {c.cta}
           </Button>
