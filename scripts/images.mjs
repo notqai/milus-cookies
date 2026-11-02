@@ -7,7 +7,12 @@
 // the CROPS list below (regions are in source pixels).
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { createRequire } from 'node:module'
+import { spawnSync } from 'node:child_process'
 import sharp from 'sharp'
+
+const require = createRequire(import.meta.url)
+const FFMPEG = spawnSync('ffmpeg', ['-version']).status === 0 ? 'ffmpeg' : require('@ffmpeg-installer/ffmpeg').path
 
 const SRC = 'assets-source'
 const OUT = 'public/images'
@@ -34,6 +39,13 @@ const CROPS = [
   { name: 'four-flavours-clean', from: 'four-flavours-rack.jpg', left: 70, top: 0, width: 650, height: 716 },
   // Favicon crop: the "Mi" with the yellow dot.
   { name: 'logo-mi', from: 'logo.jpg', left: 5, top: 250, width: 290, height: 290 },
+]
+
+// Stills pulled from a source video (never upscaled; video is 720 px wide).
+// `at` is the timestamp in seconds, `crop` the region in source pixels.
+const FRAMES = [
+  // Find Us photo: a stack of chocolate chip cookies with sea salt on checkered paper.
+  { name: 'find-us-frame', from: 'display-case-pan.mp4', at: 11, left: 0, top: 70, width: 720, height: 720 },
 ]
 
 const exists = async (p) => !!(await fs.stat(p).catch(() => null))
@@ -89,6 +101,20 @@ async function main() {
       crop: region,
     })
     console.log(`✓ crop ${c.name} from ${c.from} (${c.width}×${c.height})`)
+  }
+
+  await fs.mkdir('.cache', { recursive: true })
+  for (const f of FRAMES) {
+    const srcPath = path.join(SRC, f.from)
+    if (!(await exists(srcPath))) {
+      console.log(`– skip frame ${f.name}: ${f.from} not in ${SRC}/`)
+      continue
+    }
+    const png = path.join('.cache', `${f.name}.png`)
+    spawnSync(FFMPEG, ['-y', '-hide_banner', '-loglevel', 'error', '-ss', String(f.at), '-i', srcPath, '-frames:v', '1', png])
+    const region = { left: f.left, top: f.top, width: f.width, height: f.height }
+    manifest[f.name] = await emit(f.name, () => sharp(png).extract(region), f.width, f.height, { source: `${f.from} @ ${f.at}s`, crop: region })
+    console.log(`✓ frame ${f.name} from ${f.from} @ ${f.at}s (${f.width}×${f.height})`)
   }
 
   // Favicon, apple-touch-icon and OG image, all derived from logo.jpg.

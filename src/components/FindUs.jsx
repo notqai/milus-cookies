@@ -71,7 +71,7 @@ export default function FindUs() {
             name={c.image}
             alt={c.imageAlt}
             sizes="(min-width: 768px) 45vw, 92vw"
-            className="clip-blob-a aspect-[5/4] w-full object-cover"
+            className="clip-blob-a aspect-square w-full object-cover"
           />
           {contact.mapEmbedUrl ? (
             <iframe title="Map to Milus Cookies" src={contact.mapEmbedUrl} loading="lazy" className="aspect-[5/3] w-full rounded-[1.75rem] border-0 shadow-lift" />

@@ -197,5 +197,22 @@
       "width": 290,
       "height": 290
     }
+  },
+  "find-us-frame": {
+    "width": 720,
+    "height": 720,
+    "src": "/images/find-us-frame-720.webp",
+    "srcset": "/images/find-us-frame-480.webp 480w, /images/find-us-frame-720.webp 720w",
+    "widths": [
+      480,
+      720
+    ],
+    "source": "display-case-pan.mp4 @ 11s",
+    "crop": {
+      "left": 0,
+      "top": 70,
+      "width": 720,
+      "height": 720
+    }
   }
 }
